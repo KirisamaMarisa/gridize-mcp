@@ -1,6 +1,7 @@
 # Gridize MCP server
 
-Pixel art tools for AI agents. Connect Claude, Cursor, VS Code or any
+Pixel art tools for AI agents. Connect Claude Code, Codex, Antigravity,
+Cursor or any
 [Model Context Protocol](https://modelcontextprotocol.io) client to
 [Gridize](https://gridize.dev/?utm_source=github&utm_medium=mcp) and let your
 agent:
@@ -50,16 +51,25 @@ claude mcp add --transport http gridize https://gridize.dev/api/mcp \
 }
 ```
 
-### VS Code
+### Codex
 
-`.vscode/mcp.json`:
+`~/.codex/config.toml`:
+
+```toml
+[mcp_servers.gridize]
+url = "https://gridize.dev/api/mcp"
+http_headers = { "Authorization" = "Bearer YOUR_API_KEY" }
+```
+
+### Antigravity
+
+`~/.gemini/antigravity/mcp_config.json`:
 
 ```json
 {
-  "servers": {
+  "mcpServers": {
     "gridize": {
-      "type": "http",
-      "url": "https://gridize.dev/api/mcp",
+      "serverUrl": "https://gridize.dev/api/mcp",
       "headers": { "Authorization": "Bearer YOUR_API_KEY" }
     }
   }

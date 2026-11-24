@@ -1,6 +1,6 @@
 {
   "name": "gridize-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for pixel art: convert images to clean pixel art for free, generate sprites and animate them with Gridize.",
   "mcpName": "io.github.KirisamaMarisa/gridize-mcp",
   "type": "module",
