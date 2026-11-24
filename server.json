@@ -1,0 +1,46 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.KirisamaMarisa/gridize-mcp",
+  "title": "Gridize",
+  "description": "Pixel art for AI agents: free image to pixel art, plus sprite generation and animation.",
+  "websiteUrl": "https://gridize.dev/mcp",
+  "repository": {
+    "url": "https://github.com/KirisamaMarisa/gridize-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "gridize-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "GRIDIZE_API_KEY",
+          "description": "API key from gridize.dev/settings/apikeys for generation and animation; leave unset for the free tools",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gridize.dev/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <API key> for generation and animation; leave out for the free tools",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

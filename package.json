@@ -1,0 +1,44 @@
+{
+  "name": "gridize-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for pixel art: convert images to clean pixel art for free, generate sprites and animate them with Gridize.",
+  "mcpName": "io.github.KirisamaMarisa/gridize-mcp",
+  "type": "module",
+  "bin": {
+    "gridize-mcp": "src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "pixel-art",
+    "sprite",
+    "sprite-animation",
+    "game-dev",
+    "claude",
+    "cursor"
+  ],
+  "homepage": "https://gridize.dev/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KirisamaMarisa/gridize-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KirisamaMarisa/gridize-mcp/issues"
+  },
+  "license": "MIT"
+}
