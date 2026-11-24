@@ -8,13 +8,13 @@
     "url": "https://github.com/KirisamaMarisa/gridize-mcp",
     "source": "github"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "gridize-mcp",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"
@@ -32,11 +32,11 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://gridize.dev/api/mcp",
+      "url": "https://gridize.dev/api/mcp/account",
       "headers": [
         {
           "name": "Authorization",
-          "description": "Bearer <API key> for generation and animation; leave out for the free tools",
+          "description": "Optional Bearer <API key>; without it, clients sign in with OAuth",
           "isRequired": false,
           "isSecret": true
         }

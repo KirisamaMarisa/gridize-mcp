@@ -1,7 +1,7 @@
 # Gridize MCP server
 
-Pixel art tools for AI agents. Connect Claude Code, Codex, Antigravity,
-Cursor or any
+Pixel art tools for AI agents. Connect Claude, Claude Code, Codex,
+Antigravity, Cursor or any
 [Model Context Protocol](https://modelcontextprotocol.io) client to
 [Gridize](https://gridize.dev/?utm_source=github&utm_medium=mcp) and let your
 agent:
@@ -19,69 +19,71 @@ Install page: [gridize.dev/mcp](https://gridize.dev/mcp?utm_source=github&utm_me
 | `animate_sprite`: "walks to the right in a loop" | <img src="https://gridize.dev/images/mcp/knight-walk.gif" width="128" alt="The knight walking in a loop" style="image-rendering: pixelated"> |
 | `image_to_pixel_art`: blurry or AI-made image → clean grid | <img src="https://gridize.dev/images/converter/before-after.webp" width="260" alt="An image before and after conversion to pixel art"> |
 
-## Connect
+## Install
 
-The server is hosted at `https://gridize.dev/api/mcp` (Streamable HTTP).
-Nothing to install for clients that support remote servers.
+### Let your AI do it
 
-The free tools need no key. For generation and animation,
-[create an API key](https://gridize.dev/settings/apikeys) (new accounts get
-free trial credits) and replace `YOUR_API_KEY`; leave the header out to use
-only the free tools.
+Paste this into Claude Code, Codex, Cursor, Antigravity or any AI assistant:
 
-### Claude Code
+```
+Install the Gridize MCP server for me. Follow the guide at https://gridize.dev/mcp.md
+```
+
+It follows the [install guide for AI agents](https://gridize.dev/mcp.md). You
+sign in to Gridize once in the browser; new accounts get free trial credits.
+No API key needed.
+
+### Or set it up yourself
+
+MCP URL (Streamable HTTP, sign in with OAuth): `https://gridize.dev/api/mcp/account`
+
+**Claude** (web, desktop and mobile): open claude.ai → Customize → Connectors
+→ + Add → Add custom connector, paste the URL, then Connect and sign in. The
+Free plan allows one custom connector.
+
+**Claude Code**
 
 ```sh
-claude mcp add --transport http gridize https://gridize.dev/api/mcp \
-  --header "Authorization: Bearer YOUR_API_KEY"
+claude mcp add --transport http --scope user gridize https://gridize.dev/api/mcp/account
 ```
 
-### Cursor
+Then type `/mcp` in Claude Code, pick gridize and sign in.
 
-`~/.cursor/mcp.json`:
+**Codex**
+
+```sh
+codex mcp add gridize --url https://gridize.dev/api/mcp/account
+codex mcp login gridize
+```
+
+**Cursor**: `~/.cursor/mcp.json`, then enable gridize in Cursor Settings →
+MCP and sign in when asked.
 
 ```json
-{
-  "mcpServers": {
-    "gridize": {
-      "url": "https://gridize.dev/api/mcp",
-      "headers": { "Authorization": "Bearer YOUR_API_KEY" }
-    }
-  }
-}
+{ "mcpServers": { "gridize": { "url": "https://gridize.dev/api/mcp/account" } } }
 ```
 
-### Codex
-
-`~/.codex/config.toml`:
-
-```toml
-[mcp_servers.gridize]
-url = "https://gridize.dev/api/mcp"
-http_headers = { "Authorization" = "Bearer YOUR_API_KEY" }
-```
-
-### Antigravity
-
-`~/.gemini/antigravity/mcp_config.json`:
+**Antigravity**: `~/.gemini/config/mcp_config.json`, then Agent settings →
+Customizations → Authenticate, and paste the code from the sign-in page.
 
 ```json
-{
-  "mcpServers": {
-    "gridize": {
-      "serverUrl": "https://gridize.dev/api/mcp",
-      "headers": { "Authorization": "Bearer YOUR_API_KEY" }
-    }
-  }
-}
+{ "mcpServers": { "gridize": { "serverUrl": "https://gridize.dev/api/mcp/account" } } }
 ```
 
-### Claude Desktop and other stdio clients
+### Without an account
 
-This package is a small local bridge to the hosted server, for clients that
-only run local servers or cannot send headers. It needs Node.js 18 or later.
+`https://gridize.dev/api/mcp` needs no sign-in and offers the free tools
+(`image_to_pixel_art`, `list_palettes`).
 
-`claude_desktop_config.json`:
+### API key, or clients that only run local servers
+
+For scripts and clients without sign-in, create a key at
+[gridize.dev/settings/apikeys](https://gridize.dev/settings/apikeys) and send
+`Authorization: Bearer <key>`. Keep keys in config or environment variables,
+never in a chat.
+
+This package is a small local (stdio) bridge to the hosted server for clients
+that only run local servers. It needs Node.js 18 or later:
 
 ```json
 {
