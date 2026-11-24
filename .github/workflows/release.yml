@@ -47,6 +47,20 @@ jobs:
             npm publish --access public
           fi
 
+      # A new npm version can take a few minutes to become visible, and the
+      # registry rejects a package version it cannot find yet.
+      - name: Wait for the version on npm
+        run: |
+          for i in $(seq 1 40); do
+            if npm view "gridize-mcp@${VERSION}" version >/dev/null 2>&1; then
+              echo "gridize-mcp@${VERSION} is visible on npm."
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "gridize-mcp@${VERSION} is still not visible on npm after 10 minutes."
+          exit 1
+
       - name: Install mcp-publisher
         run: |
           curl -fsSL -o mcp-publisher.tar.gz \
