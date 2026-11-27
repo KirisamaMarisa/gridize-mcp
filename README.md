@@ -1,15 +1,18 @@
-# Gridize MCP server
+# Gridize: pixel art MCP server for Claude, Cursor and Codex
 
-Pixel art tools for AI agents. Connect Claude, Claude Code, Codex,
-Antigravity, Cursor or any
-[Model Context Protocol](https://modelcontextprotocol.io) client to
-[Gridize](https://gridize.dev/?utm_source=github&utm_medium=mcp) and let your
-agent:
+An MCP server that lets Claude, Claude Code, Codex, Cursor, Antigravity or
+any [Model Context Protocol](https://modelcontextprotocol.io) client make
+pixel art through [Gridize](https://gridize.dev/?utm_source=github&utm_medium=mcp).
+Your agent can:
 
-- **turn any image into clean pixel art**: free, no account;
 - **generate pixel art sprites** from a text prompt at 16, 32 or 64 px;
 - **animate a sprite** from a motion prompt (walk, idle, attack, spells) and
-  get a looping GIF plus every frame.
+  get a looping GIF plus every frame;
+- **turn any image into clean pixel art** on a real grid, including AI
+  images with blurry or uneven "fake" pixels: free, no account.
+
+Hosted server, nothing to run: add one URL and sign in. A local `npx`
+bridge is there for clients that only run local servers.
 
 Install page: [gridize.dev/mcp](https://gridize.dev/mcp?utm_source=github&utm_medium=mcp)
 
@@ -18,6 +21,16 @@ Install page: [gridize.dev/mcp](https://gridize.dev/mcp?utm_source=github&utm_me
 | `generate_pixel_art`: "a knight with a blue shield", 32 px | <img src="https://gridize.dev/images/mcp/knight.png" width="128" alt="A 32 px pixel art knight" style="image-rendering: pixelated"> |
 | `animate_sprite`: "walks to the right in a loop" | <img src="https://gridize.dev/images/mcp/knight-walk.gif" width="128" alt="The knight walking in a loop" style="image-rendering: pixelated"> |
 | `image_to_pixel_art`: blurry or AI-made image → clean grid | <img src="https://gridize.dev/images/converter/before-after.webp" width="260" alt="An image before and after conversion to pixel art"> |
+
+## What to ask your agent
+
+- "Make a 32 px pixel art slime enemy for my Godot game and save it to
+  `assets/sprites/`."
+- "Animate `player.png` walking right, then save the GIF and every frame
+  next to it."
+- "This AI image has blurry pixels. Convert it to clean pixel art with the
+  PICO-8 palette."
+- "Turn these four item icons into pixel art at the same size and palette."
 
 ## Install
 
